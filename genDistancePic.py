@@ -1,13 +1,29 @@
+
+'''
+Description: Resize all images from a directory based on the path, img_path,
+             with keeping the actual images frame size and save it as "filename"_dist
+              
+'''
+
 from PIL import Image
 from resizeimage import resizeimage
-img = Image.open('A/sample.jpg', 'r')
-img.show()
-img_w, img_h = img.size
-#img = img.resize((20,20))
-img = resizeimage.resize_contain(img, [20,20])
-background = Image.new('RGBA', (img_w, img_h), (48,48,48))
-bg_w, bg_h = background.size
-offset = (50, 50)
-background.paste(img, offset)
-background.show()
-background.save('sample_dist.png')
+from glob import glob
+import cv2
+import numpy as np
+import os
+
+img_path = "/Users/keonmin/Documents/Python/Face-Recognition-master/pictures/*.jpg"
+img_names = glob(img_path)
+for fn in img_names:
+    img = cv2.imread(fn, 0)
+    dimensions = img.shape
+    height = img.shape[0]
+    width = img.shape[1]
+    print('Image Height       : ',height)
+    print('Image Width        : ',width)
+    blank_image = 48 * np.ones((height,width), np.uint8)
+    img=cv2.resize(img,(50,50))
+    x_offset=y_offset=50
+    blank_image[y_offset:y_offset+img.shape[0], x_offset:x_offset+img.shape[1]] = img
+    fn = fn + '_dist.jpg'
+    cv2.imwrite(fn,blank_image)
