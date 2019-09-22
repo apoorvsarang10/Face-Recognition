@@ -29,4 +29,4 @@ for file in img_names:
     x_offset=y_offset=50
     blank_image[y_offset:y_offset+img.shape[0], x_offset:x_offset+img.shape[1]] = img
     file = file + '_dist.jpg'
-    cv2.imwrite(fn,blank_image)
+    cv2.imwrite(file,blank_image)
