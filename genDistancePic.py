@@ -17,8 +17,8 @@ CONST_WIDTH = 50;
 CONST_PATH = "/Users/keonmin/Documents/Python/Face-Recognition-master/pictures/*.jpg"
 
 img_names = glob(CONST_PATH)
-for fn in img_names:
-    img = cv2.imread(fn, 0)
+for file in img_names:
+    img = cv2.imread(file, 0)
     dimensions = img.shape
     height = img.shape[0]
     width = img.shape[1]
@@ -28,5 +28,5 @@ for fn in img_names:
     img=cv2.resize(img,(CONST_HEIGHT, CONST_WIDTH))
     x_offset=y_offset=50
     blank_image[y_offset:y_offset+img.shape[0], x_offset:x_offset+img.shape[1]] = img
-    fn = fn + '_dist.jpg'
+    file = file + '_dist.jpg'
     cv2.imwrite(fn,blank_image)
