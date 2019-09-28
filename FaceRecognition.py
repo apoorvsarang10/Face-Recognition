@@ -80,5 +80,5 @@ while(True):
 
 # Do a bit of cleanup
 print("\n [INFO] Exiting Program and cleanup stuff")
-cam.release()
+cam.release() # release source
 cv2.destroyAllWindows()
