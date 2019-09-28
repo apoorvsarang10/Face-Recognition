@@ -29,7 +29,7 @@ id = 0
 names = ['None', 'Apoorv', 'Shreya', 'Prashant', 'Archit', 'Gowtham'] 
 
 # Initialize and start realtime video capture
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0) # 0 for default camera
 cam.set(3, CONST_WIDTH) # set video widht
 cam.set(4, CONST_HEIGHT) # set video height
 
