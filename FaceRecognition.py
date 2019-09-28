@@ -12,6 +12,9 @@ import cv2
 import numpy as np
 import os 
 
+CONST_WIDTH = 640;
+CONST_HEIGHT = 480;
+
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
 cascadePath = "haarcascade_frontalface_default.xml"
@@ -27,8 +30,8 @@ names = ['None', 'Apoorv', 'Shreya', 'Prashant', 'Archit', 'Gowtham']
 
 # Initialize and start realtime video capture
 cam = cv2.VideoCapture(0)
-cam.set(3, 640) # set video widht
-cam.set(4, 480) # set video height
+cam.set(3, CONST_WIDTH) # set video widht
+cam.set(4, CONST_HEIGHT) # set video height
 
 # Define min window size to be recognized as a face
 minW = 0.1*cam.get(3)
