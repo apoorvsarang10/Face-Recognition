@@ -12,8 +12,8 @@ import cv2
 import numpy as np
 import os 
 
-CONST_WIDTH = 640
-CONST_HEIGHT = 480
+CONST_SCREEN_WIDTH = 640
+CONST_SCREEN_HEIGHT = 480
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
